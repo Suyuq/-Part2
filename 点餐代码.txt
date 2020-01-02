@@ -1,0 +1,63 @@
+(1)拷入文件
+cd  /data/wwwroot/default/ecshop
+解压
+tar -xzvf  jdk-1.8-linux-x64.tar.gz
+
+（2）修改配置文件,配置系统环境变量
+vim  /etc/profile
+在 profile 文件中添加如下内容并保存：（放的地方是进入jdk-1.8文件打pwd查看并修改）
+
+
+JAVA_HOME= /data/wwwroot/default/ecshop/jdk1.8.0_144      
+JRE_HOME= /data/wwwroot/default/ecshopj/dk1.8.0_144/jre
+PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
+CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib
+export JAVA_HOME JRE_HOME PATH CLASSPATH
+
+退出vim
+
+:q  ——退出（这是 :quit 的缩写）
+:q! ——不保存退出（这是  :quit! 的缩写）
+:wq ——写入文件并退出；（这是 :writequit 的缩写）
+
+（3）使配置生效
+source  /etc/profile
+
+2、测试是否成功
+命令行中输入：
+java -version
+
+
+3、导入sell.sql
+将数据库的密码设为centos，按下例命令完成
+mysql –u root -p
+use  mysql;
+update user set password = password('centos') where user='root';
+ 
+
+  
+
+
+3、小程序的配置
+
+将后台程序qcl8082.jar传入服务器
+ 
+
+4、输入程序
+输入命令：java -jar  qcl8082.jar
+  
+5、登录后台
+
+
+#要跑起jar文件才能访问
+http://129.204.183.151:8082/sell/seller/order/list
+
+账号密码，都是2501902696
+ 
+6、配置小程序
+
+    （1）修改iP地址和环境开发ID
+
+最后真机调试，第一次要授权，出现个人头像，才能扫码点餐。
+ 
+
